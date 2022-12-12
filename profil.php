@@ -33,9 +33,12 @@
                             if($_GET['erreur'] == 0)
                                 echo "<p style='color:green'>Modifications réalisées</p>";
                             else if ($_GET['erreur'] == 1){
-                                echo "<p style='color:red'>Mot de passe incorrect, modifications non réalisées</p>";
+                                echo "<p style='color:red'>Login déjà utilisé, modifications non réalisées</p>";
                             }
                             else if ($_GET['erreur'] == 2){
+                                echo "<p style='color:red'>Mot de passe incorrect, modifications non réalisées</p>";
+                            }
+                            else if ($_GET['erreur'] == 3){
                                 echo "<p style='color:red'>Veuillez entrer votre mot de passe pour réaliser des changements</p>";
                             }
                         }
@@ -54,23 +57,34 @@
                             if ($password != ""){
                                 $password_hash = $reponse['password'];
                                 if (password_verify($password, $password_hash)) { //mot de passe correct
-                                    // stockage des nouvelles infos dans la BDD
-                                    $password = password_hash($password, PASSWORD_DEFAULT);
-                                    $requete = "UPDATE utilisateurs SET login = '".$_POST['login']."' where login = '".$login."'";
+                                    //vérification de la disponibilité du login
+                                    $requete = "SELECT count(*) FROM utilisateurs where login = '".$login."'";
                                     $exec_requete = $connect -> query($requete);
-                                    // stockage des nouvelles infos dans les variables de session
-                                    $login = $_POST['login'];
-                                    $_SESSION['login'] = $login;
+                                    $reponse      = mysqli_fetch_array($exec_requete);
+                                    $count = $reponse['count(*)'];
 
-                                    // redirection vers la page profil avec les nouvelles données
-                                    header('Location: profil.php?erreur=0');
+                                    if ($count == 0){ //login disponible
+                                        // stockage des nouvelles infos dans la BDD
+                                        $password = password_hash($password, PASSWORD_DEFAULT);
+                                        $requete = "UPDATE utilisateurs SET login = '".$_POST['login']."' where login = '".$login."'";
+                                        $exec_requete = $connect -> query($requete);
+                                        // stockage des nouvelles infos dans les variables de session
+                                        
+                                        $_SESSION['login'] = $_POST['login'];
+
+                                        // redirection vers la page profil avec les nouvelles données
+                                        header('Location: profil.php?erreur=0');
+                                    }
+                                    else{
+                                        header('Location: profil.php?erreur=1'); // login déjà utilisé
+                                    }
                                 }
                                 else{
-                                    header('Location: profil.php?erreur=1'); // mot de passe incorrect
+                                    header('Location: profil.php?erreur=2'); // mot de passe incorrect
                                 }
                             }
                             else{
-                                header('Location: profil.php?erreur=2'); // mot de passe vide
+                                header('Location: profil.php?erreur=3'); // mot de passe vide
                             }
                         }
                     ?>

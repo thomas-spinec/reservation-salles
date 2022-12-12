@@ -384,3 +384,17 @@ table {
 .comm {
   width: 70%;
 }
+
+/* *****************
+    Planning
+****************** */
+
+.week {
+  width: 40px;
+  height: auto;
+  transition: 0.5s;
+}
+
+.week:hover {
+  opacity: 0.5;
+}
