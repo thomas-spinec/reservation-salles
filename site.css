@@ -1,0 +1,386 @@
+/* *****************
+    Styles généraux
+***************** */
+
+body {
+  background-color: #dff6ff;
+  /* font-family: "Open Sans", sans-serif; */
+  /* font-size: 16px;
+    color: #333; */
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: #333;
+}
+
+h2 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1;
+}
+
+h4 {
+  font-size: 18px;
+}
+
+.container {
+  width: 80%;
+  margin: auto;
+  padding: auto;
+}
+
+/* *****************
+    Header
+*************** */
+
+header {
+  /* display: block; */
+  background-color: #47b5ff;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  min-height: 110px;
+  max-height: 140px;
+  top: 0;
+}
+
+.flex {
+  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+#center {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  margin-left: 10%;
+  line-height: 1;
+}
+
+header ul {
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  align-items: flex-end;
+}
+
+header li {
+  padding-right: 10px;
+  line-height: 2;
+}
+
+header button {
+  background-color: #dff6ff;
+  border: 1px solid #7d7d7d9a;
+  border-radius: 15px;
+  color: #333;
+  font-size: 20px;
+  /* font-weight: bold; */
+  padding: 10px;
+  margin-top: 0;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+header button:hover {
+  background-color: #88dfff;
+}
+
+.a_head {
+  color: #fff;
+  transition: 0.5s;
+  padding: 10px 15px;
+  margin: 0px 10px;
+  font-size: 20px;
+}
+
+.a_head:hover {
+  background-color: #88dfff;
+  border-radius: 15px;
+  padding: 10px 15px;
+}
+
+/* *****************
+    Footer
+****************** */
+
+footer {
+  background-color: #1363df;
+  color: #fafafa;
+  text-align: center;
+  padding: 10px;
+  padding-bottom: 1%;
+  font-size: 20px;
+}
+
+.flex_footer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.logo {
+  flex-basis: 20%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 20%;
+}
+
+.link {
+  position: relative;
+  transition: all 0.3s;
+}
+
+.link img {
+  max-width: 100%;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.link:hover {
+  opacity: 1;
+  transform: translateY(-10%);
+  box-shadow: 0 10px 20px #88dfff;
+}
+
+/* *****************
+    Main
+****************** */
+
+main {
+  margin-top: 150px;
+  min-height: 65vh;
+  margin-bottom: 3%;
+}
+
+main button {
+  background-color: #88dfff;
+  border: 1px solid #1363df66;
+  border-radius: 15px;
+  color: #333;
+  font-size: 20px;
+  /* font-weight: bold; */
+  padding: 10px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+main button:hover {
+  background-color: #c6eefd;
+}
+
+.center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.center p {
+  font-size: 20px;
+}
+
+/* *****************
+    Formulaires
+****************** */
+
+.background_form {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #7d7d7d;
+}
+
+.background_form p {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-flow: column wrap;
+}
+
+form label {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+
+form input {
+  font-size: 20px;
+  padding: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #7d7d7d;
+  border-radius: 5px;
+}
+
+form input[type="submit"] {
+  background-color: #47b5ff;
+  color: #fafafa;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 5px;
+  margin-bottom: 5px;
+  margin-right: 10px;
+  margin-left: 10px;
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #88dfff;
+}
+
+/* *****************
+    Profil
+****************** */
+
+.profil p {
+  font-size: 24px;
+  color: #333;
+}
+
+/* *****************
+    page admin
+****************** */
+table,
+th,
+td {
+  padding: 10px;
+  border: 1px solid #7d7d7d;
+  border-collapse: collapse;
+  font-size: 20px;
+  border-radius: 10px;
+}
+
+table {
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#table_admin {
+  background-color: #fafafa;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #7d7d7d;
+  width: 50%;
+  margin: auto;
+  padding-top: 1%;
+  padding-bottom: 1%;
+  padding-left: 0.5%;
+}
+
+/* *****************
+    Morpion
+****************** */
+
+#title_morpion {
+  text-align: center;
+}
+
+.container_morpion {
+  width: 40%;
+  margin: auto;
+  padding: auto;
+}
+
+#table_morpion {
+  border: solid;
+}
+
+#table_morpion td {
+  width: 100px;
+  height: 100px;
+  /* border: solid; */
+}
+
+#table_morpion img {
+  width: 100%;
+  height: auto;
+}
+
+.morpion {
+  font-size: 20px;
+}
+
+/* *****************
+    livre d'or
+****************** */
+
+.commentaires tbody,
+.commentaires thead {
+  display: block;
+}
+
+.commentaires tbody {
+  height: 40vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.commentaires {
+  width: 60%;
+  margin: auto;
+  border: 1px solid #7d7d7d;
+  background-color: #fafafa;
+  /* border-radius: 15px; */
+  box-shadow: 0 0 10px #7d7d7d;
+}
+
+.commentaires th {
+  border-bottom: #1363df;
+  border-bottom-style: solid;
+  border-bottom-width: 1.5px;
+  border-left: none;
+  border-right: none;
+}
+
+.commentaires td {
+  padding: 20px;
+  border-bottom: #1363df;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-left: none;
+  border-right: none;
+}
+
+.date {
+  width: 15%;
+}
+
+.user {
+  width: 15%;
+}
+
+.comm {
+  width: 70%;
+}
