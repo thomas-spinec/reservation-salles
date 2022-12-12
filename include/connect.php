@@ -1,7 +1,7 @@
 <?php
 // Connexion à la base de données en local
 
-$connect = new mysqli('localhost', 'root', '', 'livreor');
+$connect = new mysqli('localhost', 'root', '', 'reservationsalles');
 
 // Connexion à la base de données en ligne
 
