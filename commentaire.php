@@ -1,7 +1,7 @@
     <!-- header des pages -->
     <?php
-        include 'header.php';
-        include 'connect.php';
+        include 'include/header.php';
+        include 'include/connect.php';
         if (!$_SESSION['loginOK']){
             header('Location: connexion.php');
         }
@@ -50,7 +50,7 @@
 
     <!-- footer des pages -->
     <?php
-        include 'footer.php';
+        include 'include/footer.php';
     ?>
 </body>
 </html>

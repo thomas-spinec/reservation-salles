@@ -3,7 +3,7 @@
 
     if (isset($_POST['login']) && isset($_POST['password'])) {
         // Connexion à la base de données
-        include 'connect.php';
+        include 'include/connect.php';
 
         // on applique les deux fonctions mysqli_real_escape_string et htmlspecialchars
         // pour éliminer toute attaque de type injection SQL et XSS

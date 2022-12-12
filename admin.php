@@ -1,7 +1,7 @@
     <!-- header des pages -->
     <?php
-        include 'header.php';
-        include 'connect.php';
+        include 'include/header.php';
+        include 'include/connect.php';
         if (!$_SESSION['loginOK']){
             header('Location: connexion.php');
         }
@@ -22,18 +22,28 @@
                             <th>Nom d'utilisateur</th>
                         </tr>
                     </thead>
+
+                    <!-- Début body tableau des utilisateurs -->
+
                     <tbody>
                         <?php
                             $request = "SELECT * FROM utilisateurs";
                             $exec_request = $connect -> query($request);
                             while(($result = $exec_request -> fetch_assoc()) != null)
                             {
-                                echo "<tr>";
-                                echo "<td>".$result['login']."</td>";
-                                echo "</tr>";
+                        ?>
+                        
+                        <tr>
+                            <td><?=$result['login']?></td>
+                        </tr>
+
+                        <?php
                             }
                         ?>
                     </tbody>
+
+                    <!-- Fin body tableau des utilisateurs -->
+
                 </table>
             </div>
         </div>
@@ -41,7 +51,9 @@
 
     <!-- footer des pages -->
     <?php
-        include 'footer.php';
+
+        mysqli_close($connect); // fermer la connexion
+        include 'include/footer.php';
     ?>
 </body>
 </html>
