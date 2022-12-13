@@ -31,8 +31,7 @@
     // Fonction jour
     function jour($reservations, $debut_fin_semaine, $format, $heure1, $heure2){
         for ($i=0; $i < 5; $i++) {
-            $case = null;
-            echo "<td>";    
+            $case = null;   
             for ($j=0; isset($reservations[$j]); $j++) {
                 $date_start = $reservations[$j]['debut'];
                 $date_end = $reservations[$j]['fin'];
@@ -41,18 +40,18 @@
                 $heure_f = get_fin($date_end)[1];
                 if ($date_d == $debut_fin_semaine[$i]->format($format) && $heure1 >= $heure_d && $heure2 <= $heure_f)
                 {
-                    echo "<div class'booked'>
-                            <a href='reservation.php?id='".$reservations[$j]['id'].">
-                                <p>".$reservations[$j]['login']."</p>
-                                <p>".$reservations[$j]['titre']."</p>
-                            </a>
-                        </div>";
+                    echo "<td class='booked'>"; 
+                    echo "<a href='reservation.php?id='".$reservations[$j]['id'].">
+                            <p>".$reservations[$j]['login']."</p>
+                            <p>".$reservations[$j]['titre']."</p>
+                        </a>";
                     $case = true;
                     break; 
                 }
             }
             if (!isset($case))
             {
+                echo "<td>"; 
                 echo "<p>Libre</p>";
             }
             echo "</td>";
@@ -96,94 +95,97 @@
 
     <!-- contenu de la page -->
     <main>
+        <div class="container">
+            <h1>Planning</h1>
         <!-- Affichage de la semaine -->
-        <table>
-            <thead>
-                <tr>
-                    <th>
-                        <a href=<?="planning.php?week=".$week-1?>><img class="week" src="img/precedent.png" alt="semaine précédente"></a>
-                    </th>
-                    <th>Lundi <?= $debut_fin_semaine[0]->format($format)?></th>
-                    <th>Mardi <?= $debut_fin_semaine[1]->format($format)?></th>
-                    <th>Mercredi <?= $debut_fin_semaine[2]->format($format)?></th>
-                    <th>Jeudi <?= $debut_fin_semaine[3]->format($format)?></th>
-                    <th>Vendredi <?= $debut_fin_semaine[4]->format($format)?></th>
-                    <th>Samedi <?= $debut_fin_semaine[5]->format($format)?></th>
-                    <th>Dimanche <?= $debut_fin_semaine[6]->format($format)?></th>
-                    <th>
-                        <a href=<?="planning.php?week=".$week+1?>><img class="week" src="img/next.png" alt="semaine suivante"></a>
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>8h-9h</td>
-                    <?php 
-                        jour($reservations, $debut_fin_semaine, $format, "08", "09"); 
-                    ?>  
-                </tr>
-                <tr>
-                    <td>9h-10h</td>
-                    <?php 
-                        jour($reservations, $debut_fin_semaine, $format, "09", "10");
-                    ?>
-                </tr>
-                <tr>
-                    <td>10h-11h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "10", "11");
-                    ?>
-                </tr>
-                <tr>
-                    <td>11h-12h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "11", "12");
-                    ?>
-                </tr>
-                <tr>
-                    <td>12h-13h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "12", "13");
-                    ?>
-                </tr>
-                <tr>
-                    <td>13h-14h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "13", "14");
-                    ?>
-                </tr>
-                <tr>
-                    <td>14h-15h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "14", "15");
-                    ?>
-                </tr>
-                <tr>
-                    <td>15h-16h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "15", "16");
-                    ?>
-                </tr>
-                <tr>
-                    <td>16h-17h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "16", "17");
-                    ?>
-                </tr>
-                <tr>
-                    <td>17h-18h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "17", "18");
-                    ?>
-                </tr>
-                <tr>
-                    <td>18h-19h</td>
-                    <?php
-                        jour($reservations, $debut_fin_semaine, $format, "18", "19");
-                    ?>
-                </tr>
-            </tbody>
-        </table>
+            <table class="planning">
+                <thead>
+                    <tr>
+                        <th>
+                            <a href=<?="planning.php?week=".$week-1?>><img class="week" src="img/precedent.png" alt="semaine précédente"></a>
+                        </th>
+                        <th>Lundi <?= $debut_fin_semaine[0]->format($format)?></th>
+                        <th>Mardi <?= $debut_fin_semaine[1]->format($format)?></th>
+                        <th>Mercredi <?= $debut_fin_semaine[2]->format($format)?></th>
+                        <th>Jeudi <?= $debut_fin_semaine[3]->format($format)?></th>
+                        <th>Vendredi <?= $debut_fin_semaine[4]->format($format)?></th>
+                        <th>Samedi <?= $debut_fin_semaine[5]->format($format)?></th>
+                        <th>Dimanche <?= $debut_fin_semaine[6]->format($format)?></th>
+                        <th>
+                            <a href=<?="planning.php?week=".$week+1?>><img class="week" src="img/next.png" alt="semaine suivante"></a>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>8h-9h</td>
+                        <?php 
+                            jour($reservations, $debut_fin_semaine, $format, "08", "09"); 
+                        ?>  
+                    </tr>
+                    <tr>
+                        <td>9h-10h</td>
+                        <?php 
+                            jour($reservations, $debut_fin_semaine, $format, "09", "10");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>10h-11h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "10", "11");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>11h-12h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "11", "12");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>12h-13h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "12", "13");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>13h-14h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "13", "14");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>14h-15h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "14", "15");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>15h-16h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "15", "16");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>16h-17h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "16", "17");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>17h-18h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "17", "18");
+                        ?>
+                    </tr>
+                    <tr>
+                        <td>18h-19h</td>
+                        <?php
+                            jour($reservations, $debut_fin_semaine, $format, "18", "19");
+                        ?>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
 
         <?php var_dump($reservations); ?>
     </main>
