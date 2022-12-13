@@ -42,12 +42,15 @@
                         if ($user == 'admin') {
                             $_SESSION['admin'] = true;
                 ?>
-
+                <!-- ////////////////////////////////////////////////////////
+                /////////////////  ADMIN  //////////////////////////////////
+                //////////////////////////////////////////////////////// -->
                 <nav>
                     <ul>
                         <li><a class='a_head'href='index.php'>Accueil</a></li>
                         <li><a class='a_head' href='profil.php'>Profil</a></li>
                         <li><a class='a_head' href='planning.php'>planning</a></li>
+                        <li><a class='a_head' href='reservation-form.php'>Faire une réservation</a></li>
                         <li><a class='a_head' href='admin.php'>Info Utilisateurs</a></li>
                     </ul>
                 </nav>
@@ -56,12 +59,15 @@
                         }
                         else {
                 ?>
-                
+                <!-- //////////////////////////////////////////////////////////
+                /////////////////  UTILISATEURS  ////////////////////////////
+                ////////////////////////////////////////////////////////// -->
                 <nav>
                     <ul>
                         <li><a class='a_head' href='index.php'>Accueil</a></li>
                         <li><a class='a_head' href='profil.php'>Profil</a></li>
                         <li><a class='a_head' href='planning.php'>planning</a></li>
+                        <li><a class='a_head' href='reservation-form.php'>Faire une réservation</a></li>
                     </ul>
                 </nav>
 
@@ -70,6 +76,9 @@
                     }
                     else{
                 ?>
+                <!-- //////////////////////////////////////////////////////////
+                /////////////////  DECONNECTER  ///////////////////////////////
+                ////////////////////////////////////////////////////////// -->
                 <div>
                     <a href='connexion.php'><button>Connexion</button></a>
                     <a href='inscription.php'><button>Inscription</button></a>
