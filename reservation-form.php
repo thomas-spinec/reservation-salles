@@ -47,6 +47,7 @@
                 </select>
                 <label for="description">Description :</label>
                 <input type="text" name="description" placeholder="Description de la réservation" required>
+                <input type="submit" value="Réserver">
             </form>
     </main>
 
@@ -54,17 +55,25 @@
         if (isset($_POST['titre']) && isset($_POST['date']) && isset($_POST['heure_debut']) && isset($_POST['heure_fin']) && isset($_POST['description'])){
             $titre = mysqli_real_escape_string($connect, htmlspecialchars($_POST['titre']));
             $date = $_POST['date'];
-            $heure_d = date("H", $_POST['heure_debut']);
-            $heure_f = date("H", $_POST['heure_fin']);
+            $heure_d = $_POST['heure_debut'];
+            $heure_f = $_POST['heure_fin'];
+            $date_d = "$date $heure_d";
+            $date_f = "$date $heure_f";
             $description = mysqli_real_escape_string($connect, htmlspecialchars($_POST['description']));
+            // Test pour vérifier si la date choisie est un week-end
+            $date = date("w", strtotime($date));
+            if ($date == 0 || $date == 6){
+                echo "La date choisie est un week-end, veuillez choisir une autre date";
+                exit();
+            }
             // Test pour vérifier la disponibilité de la réservation
             $test = "SELECT COUNT(*) FROM `reservations` WHERE debut< $heure_d < fin OR debut< $heure_f <fin";
             $result = mysqli_query($connect, $test);
             $reponse      = mysqli_fetch_array($result);
-            $count = $reponse['count(*)'];
+            $count = $reponse['COUNT(*)'];
             if ($count == 0)
             {
-                $sql = "INSERT INTO reservation (titre, date, heure_debut, heure_fin, description, id_utilisateur) VALUES ('$titre', '$date', '$heure_debut', '$heure_fin', '$description', '$id')";
+                $sql = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateur) VALUES ('$titre', '$description', '$date_d', '$date_f', '$id')";
                 $result = mysqli_query($connect, $sql);
                 if ($result){
                     echo "Réservation effectuée";
