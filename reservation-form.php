@@ -5,7 +5,7 @@
         if (!$_SESSION['loginOK']){
             header('Location: connexion.php');
         }
-        $id = $_SESSION['id'];
+        $id = (int)$_SESSION['id'];
     ?>
 
     <!-- contenu de la page -->
@@ -73,7 +73,7 @@
             $count = $reponse['COUNT(*)'];
             if ($count == 0)
             {
-                $sql = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateur) VALUES ('$titre', '$description', '$date_d', '$date_f', '$id')";
+                $sql = "INSERT INTO reservations (titre, description, debut, fin, id_utilisateur) VALUES ('$titre', '$description', '$date_d', '$date_f', $id)";
                 $result = mysqli_query($connect, $sql);
                 if ($result){
                     echo "Réservation effectuée";
