@@ -19,31 +19,31 @@
                 <input type="date" name="date" min=<?= date("Y-m-d", strtotime("now"))?> required>
                 <label for="heure_debut">Heure de début :</label>
                 <select name="heure_debut">
-                    <option value="08">08h</option>
-                    <option value="09">09h</option>
-                    <option value="10">10h</option>
-                    <option value="11">11h</option>
-                    <option value="12">12h</option>
-                    <option value="13">13h</option>
-                    <option value="14">14h</option>
-                    <option value="15">15h</option>
-                    <option value="16">16h</option>
-                    <option value="17">17h</option>
-                    <option value="18">18h</option>
+                    <option value="08:00:00">08h</option>
+                    <option value="09:00:00">09h</option>
+                    <option value="10:00:00">10h</option>
+                    <option value="11:00:00">11h</option>
+                    <option value="12:00:00">12h</option>
+                    <option value="13:00:00">13h</option>
+                    <option value="14:00:00">14h</option>
+                    <option value="15:00:00">15h</option>
+                    <option value="16:00:00">16h</option>
+                    <option value="17:00:00">17h</option>
+                    <option value="18:00:00">18h</option>
                 </select>
                 <label for="heure_fin">Heure de fin :</label>
                 <select name="heure_fin">
-                    <option value="09">09h</option>
-                    <option value="10">10h</option>
-                    <option value="11">11h</option>
-                    <option value="12">12h</option>
-                    <option value="13">13h</option>
-                    <option value="14">14h</option>
-                    <option value="15">15h</option>
-                    <option value="16">16h</option>
-                    <option value="17">17h</option>
-                    <option value="18">18h</option>
-                    <option value="19">19h</option>
+                    <option value="09:00:00">09h</option>
+                    <option value="10:00:00">10h</option>
+                    <option value="11:00:00">11h</option>
+                    <option value="12:00:00">12h</option>
+                    <option value="13:00:00">13h</option>
+                    <option value="14:00:00">14h</option>
+                    <option value="15:00:00">15h</option>
+                    <option value="16:00:00">16h</option>
+                    <option value="17:00:00">17h</option>
+                    <option value="18:00:00">18h</option>
+                    <option value="19:00:00">19h</option>
                 </select>
                 <label for="description">Description :</label>
                 <input type="text" name="description" placeholder="Description de la réservation" required>
@@ -57,8 +57,10 @@
             $date = $_POST['date'];
             $heure_d = $_POST['heure_debut'];
             $heure_f = $_POST['heure_fin'];
-            $date_d = "$date $heure_d";
-            $date_f = "$date $heure_f";
+            $date_d = [$date, $heure_d];
+            $date_d = implode(" ", $date_d);
+            $date_f = [$date,$heure_f];
+            $date_f = implode(" ", $date_f);
             $description = mysqli_real_escape_string($connect, htmlspecialchars($_POST['description']));
             // Test pour vérifier si la date choisie est un week-end
             $date = date("w", strtotime($date));
@@ -67,7 +69,7 @@
                 exit();
             }
             // Test pour vérifier la disponibilité de la réservation
-            $test = "SELECT COUNT(*) FROM `reservations` WHERE debut< $heure_d < fin OR debut< $heure_f <fin";
+            $test = "SELECT COUNT(*) FROM `reservations` WHERE debut<= '$date_d' AND '$date_d' < fin OR debut< '$date_f' AND '$date_f'<=fin";
             $result = mysqli_query($connect, $test);
             $reponse      = mysqli_fetch_array($result);
             $count = $reponse['COUNT(*)'];

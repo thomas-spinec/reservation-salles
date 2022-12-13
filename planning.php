@@ -31,7 +31,8 @@
     // Fonction jour
     function jour($reservations, $debut_fin_semaine, $format, $heure1, $heure2){
         for ($i=0; $i < 5; $i++) {
-                
+            $case = null;
+            echo "<td>";    
             for ($j=0; isset($reservations[$j]); $j++) {
                 $date_start = $reservations[$j]['debut'];
                 $date_end = $reservations[$j]['fin'];
@@ -40,21 +41,21 @@
                 $heure_f = get_fin($date_end)[1];
                 if ($date_d == $debut_fin_semaine[$i]->format($format) && $heure1 >= $heure_d && $heure2 <= $heure_f)
                 {
-                    echo "<td class='booked'>
+                    echo "<div class'booked'>
                             <a href='reservation.php?id='".$reservations[$j]['id'].">
                                 <p>".$reservations[$j]['login']."</p>
                                 <p>".$reservations[$j]['titre']."</p>
                             </a>
-                        </td>";
+                        </div>";
+                    $case = true;
                     break; 
                 }
-                else
-                {
-                    echo "<td>
-                    <p>Libre</p>
-                    </td>";
-                }
             }
+            if (!isset($case))
+            {
+                echo "<p>Libre</p>";
+            }
+            echo "</td>";
         }
     }
 
