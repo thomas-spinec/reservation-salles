@@ -1,6 +1,6 @@
     <!-- header des pages -->
     <?php
-        include 'include/header.php';
+        require 'include/header.php';
     ?>
 
     <!-- contenu de la page -->
@@ -10,7 +10,7 @@
 
     <!-- footer des pages -->
     <?php
-        include 'include/footer.php';
+        require 'include/footer.php';
     ?>
 </body>
 </html>

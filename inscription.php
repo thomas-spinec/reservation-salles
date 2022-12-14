@@ -1,7 +1,7 @@
     <!-- header des pages -->
     <?php
-        include 'include/header.php';
-        include 'include/connect.php';
+        require 'include/header.php';
+        require 'include/connect.php';
     ?>
 
     <!-- contenu de la page -->
@@ -78,7 +78,7 @@
 
     <!-- footer des pages -->
     <?php
-        include 'include/footer.php';
+        require 'include/footer.php';
     ?>
 
 </body>

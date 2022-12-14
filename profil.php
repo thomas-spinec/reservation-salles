@@ -1,7 +1,7 @@
     <!-- header des pages -->
     <?php
-        include 'include/header.php';
-        include 'include/connect.php';
+        require 'include/header.php';
+        require 'include/connect.php';
         if (!$_SESSION['loginOK']){
             header('Location: connexion.php');
         }
@@ -171,7 +171,7 @@
     <!-- footer des pages -->
     <?php
         mysqli_close($connect); // fermer la connexion
-        include 'include/footer.php';
+        require 'include/footer.php';
     ?>
 </body>
 </html>

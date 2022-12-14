@@ -41,7 +41,7 @@
                 if ($date_d == $debut_fin_semaine[$i]->format($format) && $heure1 >= $heure_d && $heure2 <= $heure_f)
                 {
                     echo "<td class='booked'>"; 
-                    echo "<a href='reservation.php?id='".$reservations[$j]['id'].">
+                    echo "<a href='reservation.php?id=" . $reservations[$j]['id'] . "'>
                             <p>".$reservations[$j]['login']."</p>
                             <p>".$reservations[$j]['titre']."</p>
                         </a>";
@@ -54,6 +54,11 @@
                 echo "<td>"; 
                 echo "<p>Libre</p>";
             }
+            echo "</td>";
+        }
+        for ($x=0; $x<2; $x++){
+            echo "<td class='weekend'>";
+            echo "<p>Indisponible</p>";
             echo "</td>";
         }
     }
@@ -88,7 +93,7 @@
         require 'include/connect.php';
 
         // récupération des réservations
-        $request = "SELECT reservations.id, reservations.titre, reservations.description, DATE_FORMAT(reservations.debut, '%d-%m-%Y %H') as debut, DATE_FORMAT(reservations.fin, '%d-%m-%Y %H') as fin, utilisateurs.login FROM reservations INNER JOIN utilisateurs on reservations.id_utilisateur = utilisateurs.id";
+        $request = "SELECT reservations.id, reservations.titre, DATE_FORMAT(reservations.debut, '%d-%m-%Y %H') as debut, DATE_FORMAT(reservations.fin, '%d-%m-%Y %H') as fin, utilisateurs.login FROM reservations INNER JOIN utilisateurs on reservations.id_utilisateur = utilisateurs.id";
         $exect_request = mysqli_query($connect, $request);
         $reservations = mysqli_fetch_all($exect_request, MYSQLI_ASSOC);
     ?>
@@ -121,73 +126,85 @@
                         <td>8h-9h</td>
                         <?php 
                             jour($reservations, $debut_fin_semaine, $format, "08", "09"); 
-                        ?>  
+                        ?>
+                        <td>8h-9h</td>
                     </tr>
                     <tr>
                         <td>9h-10h</td>
                         <?php 
                             jour($reservations, $debut_fin_semaine, $format, "09", "10");
                         ?>
+                        <td>9h-10h</td>
                     </tr>
                     <tr>
                         <td>10h-11h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "10", "11");
                         ?>
+                        <td>10h-11h</td>
                     </tr>
                     <tr>
                         <td>11h-12h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "11", "12");
                         ?>
+                        <td>11h-12h</td>
                     </tr>
                     <tr>
                         <td>12h-13h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "12", "13");
                         ?>
+                        <td>12h-13h</td>
                     </tr>
                     <tr>
                         <td>13h-14h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "13", "14");
                         ?>
+                        <td>13h-14h</td>
                     </tr>
                     <tr>
                         <td>14h-15h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "14", "15");
                         ?>
+                        <td>14h-15h</td>
                     </tr>
                     <tr>
                         <td>15h-16h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "15", "16");
                         ?>
+                        <td>15h-16h</td>
                     </tr>
                     <tr>
                         <td>16h-17h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "16", "17");
                         ?>
+                        <td>16h-17h</td>
                     </tr>
                     <tr>
                         <td>17h-18h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "17", "18");
                         ?>
+                        <td>17h-18h</td>
                     </tr>
                     <tr>
                         <td>18h-19h</td>
                         <?php
                             jour($reservations, $debut_fin_semaine, $format, "18", "19");
                         ?>
+                        <td>18h-19h</td>
                     </tr>
                 </tbody>
             </table>
         </div>
 
-        <?php var_dump($reservations); ?>
+        <?php var_dump($reservations); 
+            var_dump($_COOKIE)?>
     </main>
 
     <!-- footer des pages -->
