@@ -68,6 +68,12 @@
                 echo "La date choisie est un week-end, veuillez choisir une autre date";
                 exit();
             }
+            // Test pour vérifier que le créneau soit bien de 1h min
+            if ($heure_d >= $heure_f)
+            {
+                echo "Le créneau doit être d'au moins 1h, ou  l'heure de début doit être inférieur à l'heure de fin";
+                exit();
+            }
             // Test pour vérifier la disponibilité de la réservation
             $test = "SELECT COUNT(*) FROM `reservations` WHERE debut<= '$date_d' AND '$date_d' < fin OR debut< '$date_f' AND '$date_f'<=fin";
             $result = mysqli_query($connect, $test);
