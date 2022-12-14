@@ -18,7 +18,7 @@
                 <label for="date">Date :</label>
                 <input type="date" name="date" min=<?= date("Y-m-d", strtotime("now"))?> required>
                 <label for="heure_debut">Heure de début :</label>
-                <select name="heure_debut">
+                <select name="heure_debut" required>
                     <option value="08:00:00">08h</option>
                     <option value="09:00:00">09h</option>
                     <option value="10:00:00">10h</option>
@@ -32,7 +32,7 @@
                     <option value="18:00:00">18h</option>
                 </select>
                 <label for="heure_fin">Heure de fin :</label>
-                <select name="heure_fin">
+                <select name="heure_fin" required>
                     <option value="09:00:00">09h</option>
                     <option value="10:00:00">10h</option>
                     <option value="11:00:00">11h</option>
@@ -75,7 +75,7 @@
                 exit();
             }
             // Test pour vérifier la disponibilité de la réservation
-            $test = "SELECT COUNT(*) FROM `reservations` WHERE debut<= '$date_d' AND '$date_d' < fin OR debut< '$date_f' AND '$date_f'<=fin";
+            $test = "SELECT COUNT(*) FROM `reservations` WHERE '$date_d'<= debut AND '$date_f' <= fin OR debut<= '$date_d' AND '$date_f'<=fin OR debut<= '$date_d' AND fin <= '$date_f' OR '$date_d' <= debut AND fin <= '$date_f'";
             $result = mysqli_query($connect, $test);
             $reponse      = mysqli_fetch_array($result);
             $count = $reponse['COUNT(*)'];
