@@ -158,7 +158,7 @@ header button:hover {
     Media queries nav bar
 ********************************* */
 
-@media all and (max-device-width: 768px) {
+@media all and (max-width: 768px) {
   .ordi {
     display: none;
   }
@@ -181,8 +181,7 @@ header button:hover {
   .nav #mobile ul {
     opacity: 0;
     position: absolute;
-    top: 100%;
-    z-index: 999;
+    right: -999px;
     -webkit-transition: opacity 0.5s;
     transition: opacity 0.5s;
   }
@@ -192,13 +191,13 @@ header button:hover {
     transition: all 0.3s;
   }
 
-  #menu_img:hover {
+  .nav #mobile:hover a > #menu_img {
     transform: rotate(90deg);
   }
 
   .nav #mobile:hover > ul {
-    right: 10%;
     opacity: 1;
+    right: 10%;
     z-index: 1000;
     border-radius: 10px;
     background-color: #47b5ff;
@@ -215,7 +214,7 @@ header button:hover {
 
   .nav {
     float: right;
-    right: 10%;
+    right: 5%;
   }
   .nav > li {
     left: 50%;
@@ -536,7 +535,7 @@ table {
 
 /* media ///// */
 
-@media all and (max-device-width: 1024px) {
+@media all and (max-width: 1024px) {
   .container {
     width: 95%;
   }
