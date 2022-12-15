@@ -28,7 +28,7 @@
 
     $debut_fin_semaine = get_lundi_dimanche_from_week($week);
 
-    // Fonction jour
+    // Fonction permettant de construire l'intérieur du tableau
     function jour($reservations, $debut_fin_semaine, $format, $heure1, $heure2){
         for ($i=0; $i < 5; $i++) {
             $case = null;   

@@ -37,7 +37,7 @@
                     <h3>Bonjour <?=$user?></h3>
                     <a href='index.php?deconnexion=true'><button>Déconnexion</button></a>
                 </div>
-                        
+
                 <?php
                         if ($user == 'admin') {
                             $_SESSION['admin'] = true;
@@ -45,7 +45,7 @@
                 <!-- ////////////////////////////////////////////////////////
                 /////////////////  ADMIN  //////////////////////////////////
                 //////////////////////////////////////////////////////// -->
-                <nav>
+                <nav class="ordi">
                     <ul>
                         <li><a class='a_head'href='index.php'>Accueil</a></li>
                         <li><a class='a_head' href='profil.php'>Profil</a></li>
@@ -55,6 +55,35 @@
                     </ul>
                 </nav>
 
+                <!-- pour mobile -->
+
+                <ul class="nav">
+                    <li id="mobile">
+                        <a href="#">
+                            <img id="menu_img" src="./img/menu.png" alt="menu">
+                        </a>
+                        <ul id="menu_burger">
+                            <li>
+                                <a class='a_head'href='index.php'>Accueil</a>
+                            </li>
+                            <li>
+                                <a class='a_head' href='profil.php'>Profil</a>
+                            </li>
+                            <li>
+                                <a class='a_head' href='planning.php'>planning</a>
+                            </li>
+                            <li>
+                                <a class='a_head' href='reservation-form.php'>Faire une réservation</a>
+                            </li>
+                            <li>
+                                <a class='a_head' href='admin.php'>Info Utilisateurs</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+
+
                 <?php
                         }
                         else {
@@ -62,7 +91,7 @@
                 <!-- //////////////////////////////////////////////////////////
                 /////////////////  UTILISATEURS  ////////////////////////////
                 ////////////////////////////////////////////////////////// -->
-                <nav>
+                <nav class="ordi">
                     <ul>
                         <li><a class='a_head' href='index.php'>Accueil</a></li>
                         <li><a class='a_head' href='profil.php'>Profil</a></li>
@@ -70,6 +99,29 @@
                         <li><a class='a_head' href='reservation-form.php'>Faire une réservation</a></li>
                     </ul>
                 </nav>
+                <!-- pour mobile -->
+
+                <ul class="nav">
+                    <li id="mobile">
+                        <a href="#">
+                            <img id="menu_img" src="./img/menu.png" alt="menu">
+                        </a>
+                        <ul id="menu_burger">
+                            <li>
+                                <a class='a_head'href='index.php'>Accueil</a>
+                            </li>
+                            <li>
+                                <a class='a_head' href='profil.php'>Profil</a>
+                            </li>
+                            <li>
+                                <a class='a_head' href='planning.php'>planning</a>
+                            </li>
+                            <li>
+                                <a class='a_head' href='reservation-form.php'>Faire une réservation</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
 
                 <?php
                         }

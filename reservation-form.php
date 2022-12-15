@@ -39,7 +39,7 @@
                     }
                 ?>
                 <!-- Formulaire -->
-                <form action="verif_resa.php" method="post">
+                <form id="reserv" action="verif_resa.php" method="post">
                     <label for="titre">Titre :</label>
                     <input type="text" name="titre" placeholder="Titre de la réservation" required>
                     <label for="date">Date :</label>
