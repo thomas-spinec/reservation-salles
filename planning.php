@@ -202,9 +202,6 @@
                 </tbody>
             </table>
         </div>
-
-        <?php var_dump($reservations); 
-            var_dump($_COOKIE)?>
     </main>
 
     <!-- footer des pages -->
