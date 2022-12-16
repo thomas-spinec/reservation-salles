@@ -33,7 +33,7 @@
                     else if(isset($_SESSION['login'])){
                         $user = $_SESSION['login'];
                 ?>
-                <div id='center'>
+                <div class='center'>
                     <h3>Bonjour <?=$user?></h3>
                     <a href='index.php?deconnexion=true'><button>Déconnexion</button></a>
                 </div>
@@ -131,7 +131,7 @@
                 <!-- //////////////////////////////////////////////////////////
                 /////////////////  DECONNECTER  ///////////////////////////////
                 ////////////////////////////////////////////////////////// -->
-                <div>
+                <div class="center">
                     <a href='connexion.php'><button>Connexion</button></a>
                     <a href='inscription.php'><button>Inscription</button></a>
                 </div>

@@ -5,5 +5,5 @@ $connect = new mysqli('localhost', 'root', '', 'reservationsalles');
 
 // Connexion à la base de données en ligne
 
-// $connect = new mysqli('localhost', 'adminbdd', 'basededonnees', 'thomas-spinec_livreor')
+// $connect = new mysqli('localhost', 'adminbdd', 'basededonnees', 'thomas-spinec_reservationsalles')
 ?>
