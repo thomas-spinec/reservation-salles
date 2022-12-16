@@ -9,7 +9,7 @@
 
             <div class='logo'>
                 <div class="link">
-                    <a href="https://github.com/thomas-spinec/livre-or"><img src="img/github.png" alt="logo github"/></a>
+                    <a href="https://github.com/thomas-spinec/reservation-salles"><img src="img/github.png" alt="logo github"/></a>
                 </div>
                 <div class="link">
                     <a href="https://thomas-spinec.students-laplateforme.io/cv/"><img src="img/cv.png" alt="logo cv"/></a>

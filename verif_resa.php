@@ -29,7 +29,7 @@
         }
 
         // Test pour vérifier la disponibilité de la réservation
-        $test = "SELECT COUNT(*) FROM `reservations` WHERE '$date_d'<= debut AND '$date_f' <= fin OR debut<= '$date_d' AND '$date_f'<=fin OR debut<= '$date_d' AND '$date_d'<=fin AND fin <= '$date_f' OR '$date_d' <= debut AND fin <= '$date_f'";
+        $test = "SELECT COUNT(*) FROM `reservations` WHERE '$date_d'<= debut AND '$date_f' <= fin AND debut <='$date_f' OR debut<= '$date_d' AND '$date_f'<=fin OR debut<= '$date_d' AND '$date_d'<=fin AND fin <= '$date_f' OR '$date_d' <= debut AND fin <= '$date_f'";
         $result = mysqli_query($connect, $test);
         $reponse      = mysqli_fetch_array($result);
         $count = $reponse['COUNT(*)'];

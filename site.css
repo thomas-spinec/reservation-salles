@@ -165,7 +165,7 @@ header button:hover {
     Media queries nav bar
 ********************************* */
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 940px) {
   .ordi {
     display: none;
   }
