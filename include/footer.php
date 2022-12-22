@@ -12,7 +12,7 @@
                     <a href="https://github.com/thomas-spinec/reservation-salles"><img src="img/github.png" alt="logo github"/></a>
                 </div>
                 <div class="link">
-                    <a href="https://thomas-spinec.students-laplateforme.io/mycms/"
+                    <a href="https://thomas-spinec.students-laplateforme.io/"
                       ><img src="img/computer.png" alt="Lien vers le site"
                     /></a>
                 </div>
